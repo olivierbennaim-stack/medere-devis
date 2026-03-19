@@ -228,37 +228,36 @@ function DevisPdf({
 
         <View style={s.sep} />
 
-        {/* Pied de page — Contact + Signature client côte à côte */}
-        <View style={[s.row, s.jBetween, { alignItems: "flex-start", marginBottom: 20 }]}>
+        {/* Pied de page — Votre contact (seul sur sa ligne) */}
+        <View style={{ marginBottom: 20 }}>
+          <Text style={[s.sectionLabel, { marginBottom: 4 }]}>VOTRE CONTACT</Text>
+          <Text style={{ fontSize: 10, fontFamily: "Helvetica-Bold", color: "#262626" }}>
+            {commercial.nom}
+          </Text>
+          <Text style={{ fontSize: 9, color: "#737373" }}>{commercial.email}</Text>
+          {!!commercial.phone && (
+            <Text style={{ fontSize: 9, color: "#737373" }}>{commercial.phone}</Text>
+          )}
+        </View>
+
+        {/* Pied de page — Signature Médéré + Signature client côte à côte */}
+        <View style={[s.row, s.jBetween, { alignItems: "flex-start" }]}>
           <View style={{ flex: 1, paddingRight: 24 }}>
-            <Text style={[s.sectionLabel, { marginBottom: 4 }]}>VOTRE CONTACT</Text>
-            <Text style={{ fontSize: 10, fontFamily: "Helvetica-Bold", color: "#262626" }}>
-              {commercial.nom}
+            <Text style={s.sectionLabel}>POUR MÉDÉRÉ</Text>
+            <Text style={{ fontSize: 9, color: "#525252", marginBottom: 6 }}>
+              Harry Sitbon, Directeur Général Médéré
             </Text>
-            <Text style={{ fontSize: 9, color: "#737373" }}>{commercial.email}</Text>
-            {!!commercial.phone && (
-              <Text style={{ fontSize: 9, color: "#737373" }}>{commercial.phone}</Text>
-            )}
+            <Image
+              style={{ height: 36, objectFit: "contain", objectPositionX: "left" }}
+              src={SIGNATURE_HARRY_PATH}
+            />
           </View>
-          {/* Signature Client */}
           <View style={{ flex: 1 }}>
             <Text style={s.sectionLabel}>SIGNATURE DU CLIENT</Text>
             <Text style={{ fontSize: 9, fontFamily: "Helvetica-Bold", color: "#404040" }}>
               Signature du Client :
             </Text>
           </View>
-        </View>
-
-        {/* Pied de page — Signature Médéré */}
-        <View style={{ flex: 1, paddingRight: 24 }}>
-          <Text style={s.sectionLabel}>POUR MÉDÉRÉ</Text>
-          <Text style={{ fontSize: 9, color: "#525252", marginBottom: 6 }}>
-            Harry Sitbon, Directeur Général Médéré
-          </Text>
-          <Image
-            style={{ height: 36, objectFit: "contain", objectPositionX: "left" }}
-            src={SIGNATURE_HARRY_PATH}
-          />
         </View>
       </Page>
     </Document>

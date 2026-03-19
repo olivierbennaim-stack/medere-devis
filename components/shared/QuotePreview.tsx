@@ -178,26 +178,33 @@ export function QuotePreview({ formData, commercial }: QuotePreviewProps) {
         <div className="mt-auto pt-6">
           <div className="h-px bg-neutral-100 mb-6" />
 
-          {/* Ligne 1 : Votre contact | Signature du client */}
-          <div className="flex items-start justify-between mb-4">
+          {/* Ligne 1 : Votre contact seul */}
+          <div className="text-xs mb-4">
+            <div className="text-[10px] text-neutral-400 mb-1 uppercase tracking-wider font-semibold">
+              Votre contact
+            </div>
+            {commercial ? (
+              <>
+                <div className="font-semibold text-neutral-800">{commercial.nom}</div>
+                <div className="text-neutral-500">{commercial.email}</div>
+                {commercial.phone && (
+                  <div className="text-neutral-500">{commercial.phone}</div>
+                )}
+              </>
+            ) : (
+              <div className="text-neutral-300 italic">Sélectionnez un commercial</div>
+            )}
+          </div>
+
+          {/* Ligne 2 : Pour Médéré | Signature du client */}
+          <div className="flex items-start justify-between">
             <div className="text-xs flex-1 pr-6">
               <div className="text-[10px] text-neutral-400 mb-1 uppercase tracking-wider font-semibold">
-                Votre contact
+                Pour Médéré
               </div>
-              {commercial ? (
-                <>
-                  <div className="font-semibold text-neutral-800">{commercial.nom}</div>
-                  <div className="text-neutral-500">{commercial.email}</div>
-                  {commercial.phone && (
-                    <div className="text-neutral-500">{commercial.phone}</div>
-                  )}
-                </>
-              ) : (
-                <div className="text-neutral-300 italic">Sélectionnez un commercial</div>
-              )}
+              <div className="text-neutral-600 mb-1">Harry Sitbon, Directeur Général Médéré</div>
+              <img src="/signature-harry.png" alt="Signature Harry Sitbon" className="h-9 object-contain object-left" />
             </div>
-
-            {/* Zone signature client */}
             <div className="flex-1 text-xs">
               <div className="text-[10px] text-neutral-400 mb-1 uppercase tracking-wider font-semibold">
                 Signature du client
@@ -206,15 +213,6 @@ export function QuotePreview({ formData, commercial }: QuotePreviewProps) {
                 Signature du Client :
               </div>
             </div>
-          </div>
-
-          {/* Ligne 2 : Pour Médéré */}
-          <div className="text-xs">
-            <div className="text-[10px] text-neutral-400 mb-1 uppercase tracking-wider font-semibold">
-              Pour Médéré
-            </div>
-            <div className="text-neutral-600 mb-1">Harry Sitbon, Directeur Général Médéré</div>
-            <img src="/signature-harry.png" alt="Signature Harry Sitbon" className="h-9 object-contain object-left" />
           </div>
         </div>
       </div>
