@@ -7,7 +7,7 @@ const config: Config = {
     "^@/(.*)$": "<rootDir>/$1",
   },
   setupFilesAfterEnv: ["@testing-library/jest-dom"],
-  testPathPattern: ["**/__tests__/**/*.{ts,tsx}", "**/*.test.{ts,tsx}"],
+  testMatch: ["**/__tests__/**/*.{ts,tsx}", "**/*.test.{ts,tsx}"],
   transform: {
     "^.+\\.(ts|tsx)$": ["ts-jest", { tsconfig: { jsx: "react-jsx" } }],
   },
