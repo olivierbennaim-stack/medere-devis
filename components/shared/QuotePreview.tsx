@@ -31,7 +31,7 @@ export function QuotePreview({ formData, commercial }: QuotePreviewProps) {
       </div>
 
       {/* Document */}
-      <div className="p-8 text-[13px] leading-relaxed text-neutral-800 relative min-h-[860px]">
+      <div className="p-8 text-[13px] leading-relaxed text-neutral-800 flex flex-col min-h-[860px]">
         {/* Logo + numéro */}
         <div className="flex items-start justify-between mb-8">
           <div>
@@ -179,8 +179,8 @@ export function QuotePreview({ formData, commercial }: QuotePreviewProps) {
           </div>
         )}
 
-        {/* Pied : commercial + signature — position fixe en bas */}
-        <div className="absolute bottom-8 left-8 right-8">
+        {/* Pied : commercial + signature */}
+        <div className="mt-auto pt-6">
           <div className="h-px bg-neutral-100 mb-6" />
 
           {/* Ligne 1 : Votre contact | Signature du client */}
