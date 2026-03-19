@@ -57,11 +57,6 @@ export function QuotePreview({ formData, commercial }: QuotePreviewProps) {
                 Valable jusqu&apos;au {calculerDateExpiration(formData.dureeValidite)}
               </div>
             )}
-            {formData.typeDevis && (
-              <div className="mt-1.5 inline-block px-2 py-0.5 rounded-full bg-neutral-100 text-xs text-neutral-600 font-medium">
-                {typeDevisLabel}
-              </div>
-            )}
           </div>
         </div>
 
