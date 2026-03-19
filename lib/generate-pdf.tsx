@@ -234,8 +234,6 @@ function DevisPdf({
 
         {/* Footer — position absolue pour rester toujours au même endroit sur la page 1 */}
         <View style={{ position: "absolute", bottom: 40, left: 40, right: 40 }}>
-          <View style={s.sep} />
-
           {/* Votre contact */}
           <View style={{ marginBottom: 16 }}>
             <Text style={[s.sectionLabel, { marginBottom: 4 }]}>VOTRE CONTACT</Text>
