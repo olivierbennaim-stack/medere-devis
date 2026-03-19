@@ -30,8 +30,8 @@ export function QuotePreview({ formData, commercial }: QuotePreviewProps) {
         <span className="text-xs text-neutral-400">Se met à jour en temps réel</span>
       </div>
 
-      {/* Document */}
-      <div className="p-8 text-[13px] leading-relaxed text-neutral-800 flex flex-col min-h-[860px]">
+      {/* Document — hauteur fixe A4, footer ancré en bas */}
+      <div className="relative p-8 text-[13px] leading-relaxed text-neutral-800 flex flex-col h-[1020px] overflow-hidden">
         {/* Logo + numéro */}
         <div className="flex items-start justify-between mb-8">
           <div>
@@ -99,8 +99,8 @@ export function QuotePreview({ formData, commercial }: QuotePreviewProps) {
           </div>
         </div>
 
-        {/* Tableau sessions */}
-        <div className="mb-6">
+        {/* Tableau sessions — zone scrollable si beaucoup de lignes */}
+        <div className="mb-6 overflow-y-auto max-h-[320px]">
           <table className="w-full text-xs">
             <thead>
               <tr className="border-b border-neutral-200">
@@ -174,8 +174,8 @@ export function QuotePreview({ formData, commercial }: QuotePreviewProps) {
           </div>
         )}
 
-        {/* Pied : commercial + signature */}
-        <div className="mt-auto pt-6">
+        {/* Pied : commercial + signature — ancré en bas */}
+        <div className="absolute bottom-8 left-8 right-8">
           <div className="h-px bg-neutral-100 mb-6" />
 
           {/* Ligne 1 : Votre contact seul */}
