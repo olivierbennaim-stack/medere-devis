@@ -92,18 +92,6 @@ function DevisPdf({
   return (
     <Document>
       <Page size="A4" style={s.page}>
-        {/* Rectangle décoratif de fond */}
-        <View
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            height: 120,
-            backgroundColor: "#F9F5F2",
-          }}
-        />
-
         {/* En-tête */}
         <View style={[s.row, s.jBetween, { marginBottom: 20, alignItems: "flex-start" }]}>
           <Image style={s.logo} src={LOGO_PATH} />
