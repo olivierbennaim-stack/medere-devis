@@ -4,8 +4,7 @@ import path from "path";
 import type { FormData, Commercial } from "@/types";
 
 const LOGO_PATH = path.join(process.cwd(), "public", "logo-medere.png");
-const SIGNATURE_HARRY_URL =
-  "https://drive.google.com/uc?export=download&id=11E9DolQiFM5-jQmBdnq-5qbeF-EVpTW2";
+const SIGNATURE_HARRY_PATH = path.join(process.cwd(), "public", "signature-harry.png");
 
 const DUREE_LABELS: Record<string, string> = {
   "30j": "30 jours",
@@ -76,7 +75,6 @@ export interface DevisPdfProps {
   dateExpiration: string;
   sousTotal: number;
   total: number;
-  signatureHarry: string; // base64 data URL
 }
 
 function DevisPdf({
@@ -87,7 +85,6 @@ function DevisPdf({
   dateExpiration,
   sousTotal,
   total,
-  signatureHarry,
 }: DevisPdfProps) {
   const isSociete = formData.typeDevis === "societe";
   const isPS = formData.typeDevis === "ps";
@@ -272,7 +269,7 @@ function DevisPdf({
           </Text>
           <Image
             style={{ height: 36, objectFit: "contain", objectPositionX: "left" }}
-            src={signatureHarry}
+            src={SIGNATURE_HARRY_PATH}
           />
         </View>
       </Page>
@@ -280,14 +277,8 @@ function DevisPdf({
   );
 }
 
-export async function generateDevisPdf(params: Omit<DevisPdfProps, "signatureHarry">): Promise<Buffer> {
+export async function generateDevisPdf(params: DevisPdfProps): Promise<Buffer> {
   const { renderToBuffer } = await import("@react-pdf/renderer");
-
-  // Téléchargement de la signature Harry depuis Google Drive
-  const sigRes = await fetch(SIGNATURE_HARRY_URL);
-  const sigBuffer = await sigRes.arrayBuffer();
-  const signatureHarry = `data:image/png;base64,${Buffer.from(sigBuffer).toString("base64")}`;
-
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return await renderToBuffer(React.createElement(DevisPdf, { ...params, signatureHarry }) as any);
+  return await renderToBuffer(React.createElement(DevisPdf, params) as any);
 }

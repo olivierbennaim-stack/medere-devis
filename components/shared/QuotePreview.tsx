@@ -218,7 +218,8 @@ export function QuotePreview({ formData, commercial }: QuotePreviewProps) {
             <div className="text-[10px] text-neutral-400 mb-1 uppercase tracking-wider font-semibold">
               Pour Médéré
             </div>
-            <div className="text-neutral-600">Harry Sitbon, Directeur Général Médéré</div>
+            <div className="text-neutral-600 mb-1">Harry Sitbon, Directeur Général Médéré</div>
+            <img src="/signature-harry.png" alt="Signature Harry Sitbon" className="h-9 object-contain object-left" />
           </div>
         </div>
       </div>
