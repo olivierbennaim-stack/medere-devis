@@ -23,7 +23,7 @@ const s = StyleSheet.create({
     padding: 48,
     fontFamily: "Helvetica",
     color: "#262626",
-    fontSize: 9,
+    fontSize: 10,
     lineHeight: 1.5,
     backgroundColor: "#ffffff",
   },
@@ -31,9 +31,9 @@ const s = StyleSheet.create({
   jBetween: { justifyContent: "space-between" },
   sep: { height: 1, backgroundColor: "#f0f0f0", marginBottom: 20 },
   logo: { height: 16, objectFit: "contain" },
-  devisLabel: { fontSize: 7, color: "#a3a3a3", marginBottom: 2 },
-  devisNumber: { fontSize: 11, fontFamily: "Helvetica-Bold", color: "#0a0a0a" },
-  devisDate: { fontSize: 8, color: "#737373", marginTop: 2 },
+  devisLabel: { fontSize: 8, color: "#a3a3a3", marginBottom: 2 },
+  devisNumber: { fontSize: 13, fontFamily: "Helvetica-Bold", color: "#0a0a0a" },
+  devisDate: { fontSize: 9, color: "#737373", marginTop: 2 },
   badge: {
     marginTop: 5,
     backgroundColor: "#f5f5f5",
@@ -42,19 +42,19 @@ const s = StyleSheet.create({
     paddingVertical: 2,
     alignSelf: "flex-end",
   },
-  badgeText: { fontSize: 7, color: "#525252", fontFamily: "Helvetica-Bold" },
-  sectionLabel: { fontSize: 7, fontFamily: "Helvetica-Bold", color: "#a3a3a3", marginBottom: 5 },
+  badgeText: { fontSize: 8, color: "#525252", fontFamily: "Helvetica-Bold" },
+  sectionLabel: { fontSize: 8, fontFamily: "Helvetica-Bold", color: "#a3a3a3", marginBottom: 5 },
   blockName: {
-    fontSize: 10,
+    fontSize: 11,
     fontFamily: "Helvetica-Bold",
     color: "#0a0a0a",
     marginBottom: 2,
   },
-  blockText: { fontSize: 8, color: "#525252", lineHeight: 1.6 },
-  thText: { fontSize: 7, fontFamily: "Helvetica-Bold", color: "#737373" },
-  sessionName: { fontSize: 9, fontFamily: "Helvetica-Bold", color: "#171717" },
-  sessionId: { fontSize: 7, color: "#a3a3a3", marginTop: 1 },
-  totalLabel: { fontSize: 10, fontFamily: "Helvetica-Bold", color: "#0a0a0a" },
+  blockText: { fontSize: 9, color: "#525252", lineHeight: 1.6 },
+  thText: { fontSize: 8, fontFamily: "Helvetica-Bold", color: "#737373" },
+  sessionName: { fontSize: 10, fontFamily: "Helvetica-Bold", color: "#171717" },
+  sessionId: { fontSize: 8, color: "#a3a3a3", marginTop: 1 },
+  totalLabel: { fontSize: 11, fontFamily: "Helvetica-Bold", color: "#0a0a0a" },
   commentBox: {
     backgroundColor: "#fafafa",
     borderWidth: 1,
@@ -63,8 +63,8 @@ const s = StyleSheet.create({
     padding: 10,
     marginBottom: 20,
   },
-  commentLabel: { fontSize: 7, fontFamily: "Helvetica-Bold", color: "#a3a3a3", marginBottom: 4 },
-  commentText: { fontSize: 8, color: "#404040", lineHeight: 1.6 },
+  commentLabel: { fontSize: 8, fontFamily: "Helvetica-Bold", color: "#a3a3a3", marginBottom: 4 },
+  commentText: { fontSize: 9, color: "#404040", lineHeight: 1.6 },
 });
 
 export interface DevisPdfProps {
@@ -186,15 +186,15 @@ function DevisPdf({
                   </Text>
                 )}
               </View>
-              <Text style={{ fontSize: 8, color: "#525252", width: 30, textAlign: "center" }}>
+              <Text style={{ fontSize: 9, color: "#525252", width: 30, textAlign: "center" }}>
                 {quantite}
               </Text>
-              <Text style={{ fontSize: 8, color: "#525252", width: 65, textAlign: "right" }}>
+              <Text style={{ fontSize: 9, color: "#525252", width: 65, textAlign: "right" }}>
                 {session.prixUnitaire > 0 ? fmt(session.prixUnitaire) : "—"}
               </Text>
               <Text
                 style={{
-                  fontSize: 8,
+                  fontSize: 9,
                   fontFamily: "Helvetica-Bold",
                   color: "#171717",
                   width: 75,
@@ -211,15 +211,15 @@ function DevisPdf({
         <View style={{ alignItems: "flex-end", marginBottom: 24 }}>
           <View style={{ width: 210 }}>
             <View style={[s.row, s.jBetween, { marginBottom: 3 }]}>
-              <Text style={{ fontSize: 8, color: "#525252" }}>Sous-total HT</Text>
-              <Text style={{ fontSize: 8, color: "#525252" }}>
+              <Text style={{ fontSize: 9, color: "#525252" }}>Sous-total HT</Text>
+              <Text style={{ fontSize: 9, color: "#525252" }}>
                 {sousTotal > 0 ? fmt(sousTotal) : "—"}
               </Text>
             </View>
             {formData.remise > 0 && (
               <View style={[s.row, s.jBetween, { marginBottom: 3 }]}>
-                <Text style={{ fontSize: 8, color: "#15803d" }}>Remise</Text>
-                <Text style={{ fontSize: 8, color: "#15803d" }}>−{fmt(formData.remise)}</Text>
+                <Text style={{ fontSize: 9, color: "#15803d" }}>Remise</Text>
+                <Text style={{ fontSize: 9, color: "#15803d" }}>−{fmt(formData.remise)}</Text>
               </View>
             )}
             <View style={{ height: 1, backgroundColor: "#e5e5e5", marginVertical: 6 }} />
@@ -244,18 +244,18 @@ function DevisPdf({
         <View style={[s.row, s.jBetween, { alignItems: "flex-start", marginBottom: 20 }]}>
           <View style={{ flex: 1, paddingRight: 24 }}>
             <Text style={[s.sectionLabel, { marginBottom: 4 }]}>VOTRE CONTACT</Text>
-            <Text style={{ fontSize: 9, fontFamily: "Helvetica-Bold", color: "#262626" }}>
+            <Text style={{ fontSize: 10, fontFamily: "Helvetica-Bold", color: "#262626" }}>
               {commercial.nom}
             </Text>
-            <Text style={{ fontSize: 8, color: "#737373" }}>{commercial.email}</Text>
+            <Text style={{ fontSize: 9, color: "#737373" }}>{commercial.email}</Text>
             {!!commercial.phone && (
-              <Text style={{ fontSize: 8, color: "#737373" }}>{commercial.phone}</Text>
+              <Text style={{ fontSize: 9, color: "#737373" }}>{commercial.phone}</Text>
             )}
           </View>
           {/* Signature Client */}
           <View style={{ flex: 1 }}>
             <Text style={s.sectionLabel}>SIGNATURE DU CLIENT</Text>
-            <Text style={{ fontSize: 8, fontFamily: "Helvetica-Bold", color: "#404040" }}>
+            <Text style={{ fontSize: 9, fontFamily: "Helvetica-Bold", color: "#404040" }}>
               Signature du Client :
             </Text>
           </View>
@@ -264,7 +264,7 @@ function DevisPdf({
         {/* Pied de page — Signature Médéré */}
         <View style={{ flex: 1, paddingRight: 24 }}>
           <Text style={s.sectionLabel}>POUR MÉDÉRÉ</Text>
-          <Text style={{ fontSize: 8, color: "#525252", marginBottom: 6 }}>
+          <Text style={{ fontSize: 9, color: "#525252", marginBottom: 6 }}>
             Harry Sitbon, Directeur Général Médéré
           </Text>
           <Image
