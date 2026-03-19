@@ -232,12 +232,12 @@ function DevisPdf({
           </View>
         )}
 
-        {/* Footer complet — wrap={false} pour ne jamais couper entre deux pages */}
-        <View wrap={false}>
+        {/* Footer — position absolue pour rester toujours au même endroit sur la page 1 */}
+        <View style={{ position: "absolute", bottom: 40, left: 40, right: 40 }}>
           <View style={s.sep} />
 
           {/* Votre contact */}
-          <View style={{ marginBottom: 20 }}>
+          <View style={{ marginBottom: 16 }}>
             <Text style={[s.sectionLabel, { marginBottom: 4 }]}>VOTRE CONTACT</Text>
             <Text style={{ fontSize: 10, fontFamily: "Helvetica-Bold", color: "#262626" }}>
               {commercial.nom}
