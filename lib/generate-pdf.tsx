@@ -62,6 +62,8 @@ const s = StyleSheet.create({
     borderRadius: 4,
     padding: 10,
     marginBottom: 20,
+    maxHeight: 80,
+    overflow: "hidden",
   },
   commentLabel: { fontSize: 8, fontFamily: "Helvetica-Bold", color: "#a3a3a3", marginBottom: 4 },
   commentText: { fontSize: 9, color: "#404040", lineHeight: 1.6 },
@@ -222,7 +224,11 @@ function DevisPdf({
         {!!formData.commentaires && (
           <View style={s.commentBox}>
             <Text style={s.commentLabel}>COMMENTAIRES</Text>
-            <Text style={s.commentText}>{formData.commentaires}</Text>
+            <Text style={s.commentText}>
+              {formData.commentaires.length > 350
+                ? formData.commentaires.slice(0, 350) + "…"
+                : formData.commentaires}
+            </Text>
           </View>
         )}
 
