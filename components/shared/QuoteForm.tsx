@@ -240,10 +240,12 @@ export function QuoteForm({
 
   const isFormValid =
     !!formData.commercialId &&
-    !!formData.emailContact &&
     !!formData.typeDevis &&
+    !!formData.nomContactOuSociete &&
+    !!formData.emailContact &&
     !!formData.specialite &&
     formData.sessions.length > 0 &&
+    formData.sessions.every((s) => !!s.session) &&
     !(isSociete && formData.siren.length !== 9) &&
     !(isPS && formData.rpps.length !== 11);
 
