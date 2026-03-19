@@ -576,18 +576,18 @@ export function QuoteForm({
             onChange={(e) => {
               const val = e.target.value;
               const lignes = val.split("\n").length;
-              if (val.length <= 350 && lignes <= 5) {
+              if (val.length <= 350 && lignes <= 4) {
                 onChange({ commentaires: val });
               }
             }}
             onKeyDown={(e) => {
               const lignes = formData.commentaires.split("\n").length;
-              if (e.key === "Enter" && lignes >= 5) e.preventDefault();
+              if (e.key === "Enter" && lignes >= 4) e.preventDefault();
             }}
             rows={4}
           />
           <div className="flex justify-end mt-1 text-[11px] text-neutral-400">
-            {formData.commentaires.length} / 350 · {formData.commentaires.split("\n").length} / 5 lignes
+            {formData.commentaires.length} / 350 · {formData.commentaires.split("\n").length} / 4 lignes
           </div>
         </FieldGroup>
       </div>

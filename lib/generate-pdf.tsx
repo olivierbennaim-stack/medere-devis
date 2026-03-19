@@ -62,7 +62,7 @@ const s = StyleSheet.create({
     borderRadius: 4,
     padding: 10,
     marginBottom: 20,
-    maxHeight: 95,
+    maxHeight: 78,
     overflow: "hidden",
   },
   commentLabel: { fontSize: 8, fontFamily: "Helvetica-Bold", color: "#a3a3a3", marginBottom: 4 },
