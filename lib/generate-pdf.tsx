@@ -14,7 +14,9 @@ const DUREE_LABELS: Record<string, string> = {
 
 function fmt(n: number) {
   return (
-    n.toLocaleString("fr-FR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €"
+    n.toLocaleString("fr-FR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+      .replace(/\u202F/g, " ")
+      .replace(/\u00A0/g, " ") + " €"
   );
 }
 
