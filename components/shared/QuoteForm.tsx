@@ -151,6 +151,10 @@ function SessionSearchDropdown({
   );
 }
 
+function isEmailValide(email: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim());
+}
+
 export function QuoteForm({
   formData,
   onChange,
@@ -243,6 +247,7 @@ export function QuoteForm({
     !!formData.typeDevis &&
     !!formData.nomContactOuSociete &&
     !!formData.emailContact &&
+    isEmailValide(formData.emailContact) &&
     !!formData.specialite &&
     formData.sessions.length > 0 &&
     formData.sessions.every((s) => !!s.session) &&
@@ -428,7 +433,13 @@ export function QuoteForm({
               placeholder="contact@exemple.fr"
               value={formData.emailContact}
               onChange={(e) => onChange({ emailContact: e.target.value })}
+              className={cn(
+                formData.emailContact && !isEmailValide(formData.emailContact) && "border-red-300 focus:ring-red-400"
+              )}
             />
+            {formData.emailContact && !isEmailValide(formData.emailContact) && (
+              <p className="text-xs text-red-500">Format d&apos;email invalide</p>
+            )}
           </FieldGroup>
         </div>
       </div>
@@ -568,6 +579,29 @@ export function QuoteForm({
             </span>
           </div>
         </FieldGroup>
+
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            role="switch"
+            aria-checked={formData.afficherNumeroSession}
+            onClick={() => onChange({ afficherNumeroSession: !formData.afficherNumeroSession })}
+            className={cn(
+              "relative inline-flex h-5 w-9 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors",
+              formData.afficherNumeroSession ? "bg-neutral-900" : "bg-neutral-200"
+            )}
+          >
+            <span
+              className={cn(
+                "inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform",
+                formData.afficherNumeroSession ? "translate-x-4" : "translate-x-0"
+              )}
+            />
+          </button>
+          <Label className="cursor-pointer select-none text-sm text-neutral-700">
+            Afficher le numéro de session sur le devis
+          </Label>
+        </div>
 
         <FieldGroup label="Commentaires">
           <Textarea

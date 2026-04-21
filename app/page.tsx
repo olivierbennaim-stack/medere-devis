@@ -17,6 +17,7 @@ const FORM_INITIAL: FormData = {
   remise: 0,
   commentaires: "",
   emailBody: "",
+  afficherNumeroSession: true,
 };
 
 export default function HomePage() {

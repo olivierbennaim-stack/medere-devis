@@ -171,7 +171,7 @@ function DevisPdf({
             >
               <View style={{ flex: 1, paddingRight: 8 }}>
                 <Text style={s.sessionName}>{session.nom}</Text>
-                {!!session.sessionId && (
+                {!!session.sessionId && formData.afficherNumeroSession && (
                   <Text style={s.sessionId}>
                     {session.sessionId}
                     {session.numeroSession ? ` · Session ${session.numeroSession}` : ""}

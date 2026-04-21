@@ -35,6 +35,7 @@ export interface FormData {
   remise: number;            // en €
   commentaires: string;
   emailBody: string;
+  afficherNumeroSession: boolean;
 }
 
 export const TYPES_DEVIS = [
