@@ -122,7 +122,7 @@ export function QuotePreview({ formData, commercial }: QuotePreviewProps) {
                   <tr key={i} className="border-b border-neutral-50">
                     <td className="py-2.5 pr-4">
                       <div className="font-medium text-neutral-800">{session.nom}</div>
-                      {session.sessionId && (
+                      {session.sessionId && formData.afficherNumeroSession && (
                         <div className="text-[10px] text-neutral-400 mt-0.5 font-mono">
                           {session.sessionId}
                           {session.numeroSession && ` · Session ${session.numeroSession}`}
