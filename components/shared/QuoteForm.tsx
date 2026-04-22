@@ -252,7 +252,8 @@ export function QuoteForm({
     formData.sessions.length > 0 &&
     formData.sessions.every((s) => !!s.session) &&
     !(isSociete && formData.siren.length !== 9) &&
-    !(isPS && formData.rpps.length !== 11);
+    !(isPS && formData.rpps.length !== 11) &&
+    !!formData.modePaiement;
 
   return (
     <>
