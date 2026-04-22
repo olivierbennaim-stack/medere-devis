@@ -590,9 +590,9 @@ export function QuoteForm({
               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-50 w-64 rounded-lg border border-neutral-200 bg-white p-3 shadow-lg">
                 <p className="text-xs font-medium text-neutral-700 mb-1.5">Email de paiement post-signature</p>
                 {MODES_PAIEMENT.map((m) => (
-                  <div key={m.value} className="flex gap-1.5 mb-1 last:mb-0">
-                    <span className="text-xs font-medium text-neutral-900 shrink-0">{m.label} :</span>
-                    <span className="text-xs text-neutral-500">{m.description}</span>
+                  <div key={m.value} className="flex flex-col gap-0.5 mb-2 last:mb-0">
+                    <span className="text-xs font-semibold text-neutral-800">{m.label}</span>
+                    <span className="text-xs text-neutral-500 leading-relaxed">{m.description}</span>
                   </div>
                 ))}
               </div>
