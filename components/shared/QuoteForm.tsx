@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { Plus, Trash2, RefreshCw, Search } from "lucide-react";
+import { Plus, Trash2, RefreshCw, Search, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,7 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import type { FormData, Commercial, Session } from "@/types";
-import { TYPES_DEVIS, DUREES_VALIDITE, SPECIALITES } from "@/types";
+import { TYPES_DEVIS, DUREES_VALIDITE, SPECIALITES, MODES_PAIEMENT } from "@/types";
 import { cn } from "@/lib/utils";
 
 interface QuoteFormProps {
@@ -579,6 +579,42 @@ export function QuoteForm({
             </span>
           </div>
         </FieldGroup>
+
+        {/* Mode de paiement */}
+        <div className="flex flex-col gap-1.5">
+          <div className="flex items-center gap-1.5">
+            <Label>Mode de paiement proposé</Label>
+            <div className="relative group">
+              <Info className="h-3.5 w-3.5 text-neutral-400 cursor-help" />
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-50 w-64 rounded-lg border border-neutral-200 bg-white p-3 shadow-lg">
+                <p className="text-xs font-medium text-neutral-700 mb-1.5">Email de paiement post-signature</p>
+                {MODES_PAIEMENT.map((m) => (
+                  <div key={m.value} className="flex gap-1.5 mb-1 last:mb-0">
+                    <span className="text-xs font-medium text-neutral-900 shrink-0">{m.label} :</span>
+                    <span className="text-xs text-neutral-500">{m.description}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="grid grid-cols-3 gap-1.5">
+            {MODES_PAIEMENT.map((mode) => (
+              <button
+                key={mode.value}
+                type="button"
+                onClick={() => onChange({ modePaiement: mode.value })}
+                className={cn(
+                  "rounded-md border px-3 py-2 text-xs font-medium transition-colors text-center",
+                  formData.modePaiement === mode.value
+                    ? "border-neutral-900 bg-neutral-900 text-white"
+                    : "border-neutral-200 bg-white text-neutral-600 hover:border-neutral-400 hover:text-neutral-900"
+                )}
+              >
+                {mode.label}
+              </button>
+            ))}
+          </div>
+        </div>
 
         <div className="flex items-center gap-3">
           <button

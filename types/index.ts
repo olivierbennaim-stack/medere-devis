@@ -36,6 +36,7 @@ export interface FormData {
   commentaires: string;
   emailBody: string;
   afficherNumeroSession: boolean;
+  modePaiement: string;      // "virement" | "stripe" | "virement-ou-stripe"
 }
 
 export const TYPES_DEVIS = [
@@ -53,4 +54,22 @@ export const SPECIALITES = [
   { value: "medecin", label: "Médecin" },
   { value: "dentiste", label: "Dentiste" },
   { value: "autre", label: "Autre" },
+];
+
+export const MODES_PAIEMENT = [
+  {
+    value: "stripe",
+    label: "Stripe",
+    description: "L'email de paiement contiendra uniquement le lien de paiement en ligne Stripe.",
+  },
+  {
+    value: "virement",
+    label: "Virement",
+    description: "L'email de paiement contiendra uniquement le RIB en pièce jointe.",
+  },
+  {
+    value: "virement-ou-stripe",
+    label: "Virement ou Stripe",
+    description: "L'email de paiement contiendra à la fois le lien Stripe et le RIB en pièce jointe — le PS choisit son mode préféré.",
+  },
 ];

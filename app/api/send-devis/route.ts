@@ -14,6 +14,12 @@ const SPECIALITE_LABELS: Record<string, string> = {
   autre: "Autre",
 };
 
+const MODE_PAIEMENT_LABELS: Record<string, string> = {
+  stripe: "Stripe",
+  virement: "Virement",
+  "virement-ou-stripe": "Virement ou Stripe",
+};
+
 const TYPE_LABELS: Record<string, string> = {
   societe: "Société",
   ps: "Praticien de santé",
@@ -70,6 +76,8 @@ export async function POST(req: NextRequest) {
       airtableFields["Spécialité"] = SPECIALITE_LABELS[formData.specialite] || formData.specialite;
     if (formData.commentaires)
       airtableFields["Commentaires éventuels"] = formData.commentaires;
+    if (formData.modePaiement)
+      airtableFields["Mode de paiement"] = MODE_PAIEMENT_LABELS[formData.modePaiement] || formData.modePaiement;
     if (sessions[0]) airtableFields["Quantité formation 1"] = String(sessions[0].quantite);
     if (sessions[1]) airtableFields["Quantité formation 2"] = String(sessions[1].quantite);
     if (sessions[2]) airtableFields["Quantité formation 3"] = String(sessions[2].quantite);

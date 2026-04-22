@@ -18,6 +18,7 @@ const FORM_INITIAL: FormData = {
   commentaires: "",
   emailBody: "",
   afficherNumeroSession: true,
+  modePaiement: "virement-ou-stripe",
 };
 
 export default function HomePage() {
