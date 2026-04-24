@@ -365,6 +365,7 @@ export function QuoteForm({
           <Input
             placeholder={isSociete ? "Nom de la société…" : "Dr. Martin…"}
             value={formData.nomContactOuSociete}
+            maxLength={100}
             onChange={(e) => onChange({ nomContactOuSociete: e.target.value })}
           />
         </FieldGroup>
