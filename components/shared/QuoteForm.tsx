@@ -361,7 +361,7 @@ export function QuoteForm({
           Contact / Destinataire
         </p>
 
-        <FieldGroup label={isSociete ? "Nom de la société" : "Nom du PS"} required>
+        <FieldGroup label={isSociete ? "Nom de la société" : "Nom du PS – max 100 caractères"} required>
           <Input
             placeholder={isSociete ? "Nom de la société…" : "Dr. Martin…"}
             value={formData.nomContactOuSociete}
