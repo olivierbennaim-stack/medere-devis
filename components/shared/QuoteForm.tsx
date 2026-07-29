@@ -152,7 +152,7 @@ function SessionSearchDropdown({
 }
 
 function isEmailValide(email: string): boolean {
-  return /^[^\s@]+@[^\s@]+\.(com|fr|org|io|net)$/.test(email.trim().toLowerCase());
+  return /^[^\s@]+@[^\s@]+\.(com|fr|org|io|net|es)$/.test(email.trim().toLowerCase());
 }
 
 export function QuoteForm({
